@@ -2,7 +2,15 @@
 
 remember to use wsl for everything if u are on windows! caution: needs like 30 GB including linera-protocol
 
-git clone this to same folder as linera-protocol:
+build linera-protocol:
+```
+git clone https://github.com/linera-io/linera-protocol.git
+cd linera-protocol
+git checkout 8d2ad58366e780f2667bbc572684ea8f409d1544
+cargo install --path linera-service
+```
+
+git clone this to same folder as linera-protocol and build:
 ```
 git clone -b master https://github.com/toshinari123/linera_logger
 cd linera_logger/logger
@@ -15,11 +23,7 @@ we will use multiple terminals, denoted by [terminal].
 if you have services running make sure to close them now
 [local network]:
 ```
-git clone https://github.com/linera-io/linera-protocol.git
-cd linera-protocol
-git checkout 8d2ad58366e780f2667bbc572684ea8f409d1544
-cargo install --path linera-service
-../linera-logger/run.sh
+./linera-logger/run.sh
 ```
 [linera service 1]:
 ```
