@@ -105,6 +105,7 @@ cd ../../../linera_logger
 LOGGER_BYTECODE_ID=$(linera --wallet "$LINERA_WALLET" --storage "$LINERA_STORAGE" publish-bytecode logger/target/wasm32-unknown-unknown/release/logger_{contract,service}.wasm)
 FUNGIBLE_BYTECODE_ID=$(linera --wallet "$LINERA_WALLET" --storage "$LINERA_STORAGE" publish-bytecode logging_fungible/target/wasm32-unknown-unknown/release/logging_fungible_{contract,service}.wasm)
 LOGGER_APPLICATION_ID=$(linera --wallet "$LINERA_WALLET" --storage "$LINERA_STORAGE" create-application "$LOGGER_BYTECODE_ID")
+read
 FUNGIBLE_APPLICATION_ID=$(linera --wallet "$LINERA_WALLET" --storage "$LINERA_STORAGE" create-application "$FUNGIBLE_BYTECODE_ID" --json-parameters "{\"logger\":\"${LOGGER_APPLICATION_ID}\"}" --required-application-ids "$LOGGER_APPLICATION_ID")
 
 echo "open three consoles: run a service for each wallet and start the frontend; press enter to proceed"
